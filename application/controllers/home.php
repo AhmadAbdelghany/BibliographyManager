@@ -14,20 +14,27 @@ class Home extends Controller
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
      */
-    public function index($activeLibId=1)
+    public function index($activeLibId=-1)
     {
     	// getting user libraries
     	if(isset($_SESSION["user"])) {
+    		    		
     		$userId = $_SESSION["user"]->id;
     		$unfiledLib = $this->model->getUnfiled($userId);
     		$trashLib = $this->model->getTrash($userId);
     		$ownedLibs = $this->model->getOwnedLibs($userId);
     		$sharedLibs = $this->model->getSharedLibs($userId);
-    		 
+    		
+    		if($activeLibId==-1) {
+    			$activeLibId = $unfiledLib->id;
+    		}
+    		
     		$activeLib = $this->model->getLibrary($activeLibId);
     		$activeLibReferences = $this->model->getReferences($activeLib->id);
     		$activeLibViewers = $this->model->getViewers($activeLib->id);
-    		 
+    		
+    		$isOwner = $this->model->isOwner($userId, $activeLibId);
+    		
     		$_SESSION["activeLib"] = $activeLib;
     		$_SESSION["activeLibReferences"] = $activeLibReferences;
     	}

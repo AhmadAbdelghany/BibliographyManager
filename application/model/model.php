@@ -351,4 +351,12 @@ class Model
     	return $query->fetch();
     }
     
+    public function isOwner($userId, $libId) {
+    	$sql = "SELECT count(*) AS num FROM user_priv WHERE userId=:userId AND libId=:libId";
+    	$query = $this->db->prepare($sql);
+    	$parameters = array(':userId' => $userId, ':libId' => $libId);
+    	$query->execute($parameters);
+    	return $query->fetch()->num == 1;
+    }
+    
 }
