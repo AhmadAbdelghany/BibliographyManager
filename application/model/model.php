@@ -352,7 +352,7 @@ class Model
     }
     
     public function isOwner($userId, $libId) {
-    	$sql = "SELECT count(*) AS num FROM user_priv WHERE userId=:userId AND libId=:libId";
+    	$sql = "SELECT count(*) AS num FROM user_priv WHERE userId=:userId AND libId=:libId AND isOwner=1";
     	$query = $this->db->prepare($sql);
     	$parameters = array(':userId' => $userId, ':libId' => $libId);
     	$query->execute($parameters);

@@ -14,7 +14,7 @@
 					<h3 class="blank1 myHeader" style="display: inline-block;margin: 0px 20px 30px 0px"> 
 					<?php echo $activeLib->name;?> 
 					</h3>
-					<?php if ($isOwner) { ?>				
+					<?php if ($isOwner && !$activeLib->isSysLib) { ?>				
 					<div class="" style="display: inline-block;">
 						<div class="dropdown" style="display: inline-block;">
 							<a href="#" title="" class="btn btn-default"
