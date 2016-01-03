@@ -307,4 +307,48 @@ class Model
     	   
     }
     
+    public function moveToTrash($refId, $trashId) {
+    	$sql = "UPDATE reference SET libId = :trashId
+    			WHERE id = :refId";
+    	$query = $this->db->prepare($sql);
+    	$parameters = array(
+    			':trashId' => $trashId,
+    			':refId' => $refId
+    	);
+    	$query->execute($parameters);
+    
+    }
+    
+    public function emptyTrash($trashId)
+    {
+    	$sql = "DELETE FROM reference WHERE libId = :trashId";
+    	$query = $this->db->prepare($sql);
+    	$parameters = array(':trashId' => $trashId);
+    	$query->execute($parameters);
+    }
+    
+    public function updateProfile($userId, $firstName, $surname, $email) {
+    	$sql = "UPDATE user SET firstname = :firstname, surname = :surname, email = :email 
+    			WHERE id = :userId";
+    	$query = $this->db->prepare($sql);
+    	$parameters = array(
+    			':firstname' => $firstName,
+    			':surname' => $surname,
+    			':email' => $email,
+    			':userId' => $userId
+    	);
+    	$query->execute($parameters);
+    
+    }
+    
+    public function getUserById($userId) {
+    	$sql = "SELECT * FROM user
+    			WHERE id = :userId
+    			LIMIT 1";
+    	$query = $this->db->prepare($sql);
+    	$parameters = array(':userId' => $userId);
+    	$query->execute($parameters);
+    	return $query->fetch();
+    }
+    
 }

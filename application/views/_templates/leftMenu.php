@@ -18,7 +18,7 @@
 		<ul class="nav nav-pills nav-stacked custom-nav">
 			<li><a
 				href="<?php echo URL_WITH_INDEX_FILE . 'home/index/' . $unfiledLib->id; ?>"><i
-					class="lnr lnr-menu"></i> <span>Unfiled</span></a></li>
+					class="lnr lnr-book"></i> <span>Unfiled</span></a></li>
 
 			<li class="menu-list"><a href="#"><i class="lnr lnr-menu"></i> <span>My
 						Libraries</span></a>
@@ -30,7 +30,7 @@
 									<?php }?>
 								</ul></li>
 
-			<li class="menu-list"><a href="#"><i class="lnr lnr-menu"></i> <span>Libs
+			<li class="menu-list"><a href="#"><i class="lnr lnr-cloud"></i> <span>Libs
 						shared with me</span></a>
 				<ul class="sub-menu-list">
 									<?php foreach ($sharedLibs as $sharedLib) { ?>
@@ -41,7 +41,7 @@
 
 			<li><a
 				href="<?php echo URL_WITH_INDEX_FILE . 'home/index/' .$trashLib->id ?>"><i
-					class="lnr lnr-menu"></i> <span>Trash</span></a></li>
+					class="lnr lnr-trash"></i> <span>Trash</span></a></li>
 		</ul>
 		<!--sidebar nav end-->
 	</div>
@@ -72,7 +72,7 @@
 
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-default" >Create
+					<button type="submit" class="btn btn-success" >Create
 						Library</button>
 				</div>
 			</form>

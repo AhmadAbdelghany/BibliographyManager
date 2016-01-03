@@ -1,3 +1,4 @@
+
 <div class="header-section">
 	<!--notification menu start -->
 	<div class="menu-right">
@@ -22,7 +23,7 @@
 							</div>
 					</a>
 						<ul class="dropdown-menu drp-mnu">
-							<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+							<li><a href="<?php echo URL_WITH_INDEX_FILE . 'home/editProfile' ?>"><i class="fa fa-user"></i>Profile</a></li>
 							<li><a href="<?php echo URL_WITH_INDEX_FILE . 'home/logout' ?>"><i class="fa fa-sign-out"></i> Logout</a>
 							</li>
 						</ul></li>

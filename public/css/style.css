@@ -4340,7 +4340,7 @@ button.rew:hover {
 	float:right;
 	width:70%;
 	}
-.sign-up2 input[type="text"],.sign-up2 input[type="password"]{
+.sign-up2 input[type="text"],.sign-up2 input[type="password"],.sign-up2 input[type="email"]{
 	outline:none;
 	border: 1px solid #eee;
     background: none;
@@ -4644,7 +4644,7 @@ span.badge1 {
 	min-height: 830px;
 }
 .sign-in-form{
-	margin:2em auto 4em;
+	margin:0em auto 4em;
 	width:35%;
 }
 .sign-in-wrapper{
@@ -4679,8 +4679,8 @@ span.badge1 {
 .sign-in-form-top{
 	background:url(../images/3.jpg) no-repeat 0px -55px;
 	display:block;
-	min-height:150px;
-	padding:3em 0 0;
+	min-height:85px;
+	padding:1em 0 0;
 	text-align: center;
 }
 .sign-in-form-top p{
@@ -4885,7 +4885,7 @@ p.creating{
 	float:right;
 	width:70%;
 	}
-.sign-up2 input[type="text"]{
+.sign-up2 input[type="text"],.sign-up2 input[type="email"]{
 	outline:none;
 	border:1px solid #BEBEBE;
 	background:none;

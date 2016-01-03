@@ -17,20 +17,21 @@ class Home extends Controller
     public function index($activeLibId=1)
     {
     	// getting user libraries
-    	$userId = $_SESSION["user"]->id;
-    	$unfiledLib = $this->model->getUnfiled($userId);
-    	$trashLib = $this->model->getTrash($userId);
-    	$ownedLibs = $this->model->getOwnedLibs($userId);
-    	$sharedLibs = $this->model->getSharedLibs($userId);
-    	
-    	$activeLib = $this->model->getLibrary($activeLibId);
-    	$activeLibReferences = $this->model->getReferences($activeLib->id);
-    	$activeLibViewers = $this->model->getViewers($activeLib->id);
-    	
-    	$_SESSION["activeLib"] = $activeLib;
-    	$_SESSION["activeLibReferences"] = $activeLibReferences;
-//     	var_dump($trashLib);
-    	   
+    	if(isset($_SESSION["user"])) {
+    		$userId = $_SESSION["user"]->id;
+    		$unfiledLib = $this->model->getUnfiled($userId);
+    		$trashLib = $this->model->getTrash($userId);
+    		$ownedLibs = $this->model->getOwnedLibs($userId);
+    		$sharedLibs = $this->model->getSharedLibs($userId);
+    		 
+    		$activeLib = $this->model->getLibrary($activeLibId);
+    		$activeLibReferences = $this->model->getReferences($activeLib->id);
+    		$activeLibViewers = $this->model->getViewers($activeLib->id);
+    		 
+    		$_SESSION["activeLib"] = $activeLib;
+    		$_SESSION["activeLibReferences"] = $activeLibReferences;
+    	}
+    	    	   
         // load views
         require APP . 'views/_templates/header.php';
         require APP . 'views/_templates/leftMenu.php';
@@ -86,11 +87,25 @@ class Home extends Controller
     	}
     }
     
-
     public function logout()
     {
     	session_unset();
         // load views
         header('location: ' . URL_WITH_INDEX_FILE . 'home/login');
     }
+    
+    public function editProfile() {
+    	$user = $_SESSION["user"];
+    	require APP . 'views/_templates/header.php';
+    	require APP . 'views/_templates/logo.php';
+    	require APP . 'views/home/profile.php';
+    	require APP . 'views/_templates/footer.php';
+    }
+    
+    public function updateProfile() {
+    	$this->model->updateProfile($_SESSION["user"]->id, $_POST["firstName"], $_POST["surname"], $_POST["email"]);
+    	$_SESSION["user"] = $this->model->getUserById($_SESSION["user"]->id);
+    	header('location: ' . URL_WITH_INDEX_FILE . 'home/index');
+    }
+    
 }

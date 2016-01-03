@@ -14,7 +14,7 @@
 					<h3 class="blank1 myHeader" style="display: inline-block;margin: 0px 20px 30px 0px"> 
 					<?php echo $activeLib->name;?> 
 					</h3>
-									
+					<?php if (!$activeLib->isSysLib) { ?>				
 					<div class="" style="display: inline-block;">
 						<div class="dropdown" style="display: inline-block;">
 							<a href="#" title="" class="btn btn-default"
@@ -54,13 +54,17 @@
 					      </li>
 					    </ul>
 					  </div>
-					
+					  <?php }?>
 				</div>
 				<div class="clearfix"></div>
 				
 				<h4 class="blank1">References</h4>
 				<div style="margin-bottom: 10px;">
+				<?php if ($activeLib->name != "Trash") {?>
 				<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#newRefModal">Add a reference</button>
+				<?php } else {?>
+				<a class="btn btn-default btn-md" href="<?php echo URL_WITH_INDEX_FILE.'references/emptyTrash'?>">Empty Trash!</a>
+				<?php }?>
 				</div>
 				<div class="clearfix"></div>
 				<div class="bs-example4" data-example-id="contextual-table">
@@ -82,15 +86,15 @@
 							  <td><?php echo $reference->author;?></td>
 							  <td><?php echo $reference->journal;?></td>
 							  <td>
-
+								<?php if ($activeLib->name != "Trash") {?>
 							  	<a href="<?php echo URL_WITH_INDEX_FILE.'references/edit/'.$reference->id?>">
 						          <span class="glyphicon glyphicon-pencil"></span>
 						        </a>
 								&nbsp;
-						        <a href="#">
+						        <a href="<?php echo URL_WITH_INDEX_FILE.'references/delete/'.$reference->id?>">
 						          <span class="glyphicon glyphicon-trash"></span>
 						        </a>
-
+								<?php }?>
 							  </td>
 							</tr>
 							<?php }?>

@@ -23,4 +23,17 @@ class References extends Controller {
 		header('location: ' . URL_WITH_INDEX_FILE . 'home/index/'.$activeLibId);
 	}
 	
+	public function delete($refId) {
+		$userId = $_SESSION["user"]->id;
+		$userTrash = $this->model->getTrash($userId);
+		$reference = $this->model->moveToTrash($refId, $userTrash->id);
+		header('location: ' . URL_WITH_INDEX_FILE . 'home/index/'.$activeLibId);
+	}
+	
+	public function emptyTrash() {
+		$trashId = $_SESSION["activeLib"]->id;
+		$this->model->emptyTrash($trashId);
+		header('location: ' . URL_WITH_INDEX_FILE . 'home/index/'.$trashId);
+	}
+	
 }

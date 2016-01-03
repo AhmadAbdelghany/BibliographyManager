@@ -1,5 +1,5 @@
 <?php 
-	if (!$this) { 
+	if (!$this || !isset($_SESSION["user"])) { 
 		exit(header('HTTP/1.0 403 Forbidden')); 
 	} 
 	
@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title> Bibliography Manager | Login</title>
+<title> Bibliography Manager </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 

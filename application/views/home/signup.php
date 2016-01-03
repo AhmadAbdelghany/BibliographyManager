@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title> Bibliography Manager | Login</title>
+<title> Bibliography Manager | Sign up</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -64,8 +64,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h4>Email Address* :</h4>
 							</div>
 							<div class="sign-up2">
-								<input name="email" type="text" placeholder=" " required=" "/>
+									<input name="email" type="email" placeholder=" " id="email" required />
 							</div>
+							
 							<div class="clearfix"> </div>
 						</div>
 						<h6>Login Information</h6>
