@@ -54,7 +54,7 @@ if (defined('URL_SUB_FOLDER')) {
 // define('DB_PASS', 'admin');
 
 define('DB_TYPE', 'mysql');
-define('DB_HOST', 'us-cdbr-azure-west-c.cloudapp.net');
-define('DB_NAME', 'bib_manager');
-define('DB_USER', 'b1e58ca27de460');
-define('DB_PASS', '001ee518');
+define('DB_HOST', 'eu-cdbr-azure-north-d.cloudapp.net');
+define('DB_NAME', 'acsm_041b7098d974235');
+define('DB_USER', 'bcfa588a057935');
+define('DB_PASS', '891fb21a');
