@@ -1,7 +1,16 @@
+Bibliography Manager
+===================
+
 Sample PHP Application
 
-Technologies:
-=============
-PHP Bootstrap
-TINY MVC framework
-MySQL
+Demo
+----
+http://bibliographymanager.azurewebsites.net/
+
+Technologies
+------------
+* PHP
+* TINY MVC framework
+* Twitter Bootstrap
+* MySQL
+* Microsoft Azure
